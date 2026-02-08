@@ -28,7 +28,8 @@ LinInject is an advanced core injection tool for linux. Uses `ptrace` and proces
 │   ├── map_scanner.c  # Memory Mapping
 │   └── sniffer.c      # Register Logging and Analysis
 ├── build/             # Compiled binaries
-└── data/              # Storage for register logs (.csv files)```
+└── data/              # Storage for register logs (.csv files)
+```
 
 ## Build And Run
 
@@ -39,26 +40,28 @@ LinInject is an advanced core injection tool for linux. Uses `ptrace` and proces
 make
 
 #to clean build files:
-make clean``` 
+make clean
+``` 
 
 * Run 
  When you are in project folder
  ```bash
- sudo ./build/LinInject <pathway of payload.bin>```
+ sudo ./build/LinInject <pathway of payload.bin>
+```
 
 ## How It Works (Step-by-Step)
 
-    1. The program forks. The child calls `PTRACE_TRACEME` and becomes the target.
+   1. The program forks. The child calls `PTRACE_TRACEME` and becomes the target.
 
-    2. The parent waits until the child is loaded.
+   2. The parent waits until the child is loaded.
 
-    3. `is_it_safe()` checks the CPU behavior.
+   3. `is_it_safe()` checks the CPU behavior.
 
-    4. Shellcode is injected into the RIP address (where the CPU is currently looking).
+   4. Shellcode is injected into the RIP address (where the CPU is currently looking).
 
-    5. `PTRACE_SYSCALL` lets the shellcode run until it hits a system call.
+   5. `PTRACE_SYSCALL` lets the shellcode run until it hits a system call.
 
-    6. Everything is repairing. Parent detaches. No traces left.
+   6. Everything is repairing. Parent detaches. No traces left.
 
 ##Disclaimer
 
