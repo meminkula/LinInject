@@ -1,0 +1,11 @@
+LinInject
+LinInject-AI
+build/
+data/*.csv
+data/register_logs.csv
+*.o
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
